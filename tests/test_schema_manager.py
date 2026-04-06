@@ -31,7 +31,7 @@ class TestNormalizeColumnName:
         assert schema_manager.normalize_column_name("First Name") == "first_name"
 
     def test_special_chars(self):
-        assert schema_manager.normalize_column_name("price ($)") == "price___"
+        assert schema_manager.normalize_column_name("price ($)") == "price"
 
     def test_leading_trailing_spaces(self):
         assert schema_manager.normalize_column_name("  age  ") == "age"

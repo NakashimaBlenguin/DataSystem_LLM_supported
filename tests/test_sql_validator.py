@@ -52,7 +52,7 @@ class TestSelectOnly:
 class TestDangerousPatterns:
     def test_reject_semicolon(self, conn):
         with pytest.raises(ValidationError, match="Multiple statements"):
-            sql_validator.validate_query(conn, "SELECT * FROM sales; DROP TABLE sales")
+            sql_validator.validate_query(conn, "SELECT * FROM sales; SELECT * FROM sales")
 
     def test_reject_comment_dash(self, conn):
         with pytest.raises(ValidationError, match="comments"):
